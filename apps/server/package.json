@@ -1,0 +1,31 @@
+{
+	"name": "api",
+	"version": "1.0.0",
+	"scripts": {
+		"dev": "tsx watch src/server.ts",
+		"build": "tsc",
+		"start": "node dist/server.js"
+	},
+	"dependencies": {
+		"@ts-rest/core": "3.53.0-rc.1",
+		"@ts-rest/express": "3.53.0-rc.1",
+		"better-auth": "^1.4.7",
+		"cors": "^2.8.5",
+		"dotenv": "^17.2.3",
+		"drizzle-orm": "^0.45.1",
+		"express": "^5.2.1",
+		"pg": "^8.16.3",
+		"shared": "workspace:*",
+		"zod": "^4.2.1"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.0",
+		"@types/pg": "^8.16.0",
+		"drizzle-kit": "^0.31.8",
+		"tsx": "^4.21.0"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.25.0"
+}

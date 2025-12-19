@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"rootDir": ".",
+		"paths": {
+			"shared": ["../../packages/shared/src"],
+			"@/server/*": ["./src/*"],
+			"@web/*": ["../web/src/*"]
+		}
+	}
+}

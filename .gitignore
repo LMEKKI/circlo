@@ -1,0 +1,296 @@
+# Node & TypeScript
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env & secrets
+.env
+.env.*
+*.local
+*.secret
+*.envrc
+
+# Database & Drizzle
+*.sqlite
+drizzle/
+drizzle-kit/
+pgdata/
+*.db
+*.dump
+
+# Docker
+*.pid
+docker-compose.override.yml
+.docker/
+
+# VSCode & IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test & coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Build tools
+.eslintcache
+.cache/
+
+# Misc
+*.tgz
+*.log
+*.lock
+
+# Monorepo/Workspace
+pnpm-lock.yaml
+yarn.lock
+lerna-debug.log
+
+# Exclude generated files
+apps/*/drizzle/
+apps/*/dist/
+apps/*/build/
+apps/*/coverage/
+
+# Exclude shared build
+shared/dist/
+shared/build/
+
+# Exclude web build
+apps/web/public/build/
+
+# Exclude server build
+apps/server/public/build/
+
+# Exclude auth generated
+apps/server/auth-schema.ts
+
+# Exclude temp
+/tmp/
+
+# Exclude backups
+*.bak
+
+# Exclude secrets
+secrets.*
+
+# Exclude database dumps
+*.sql
+*.dump
+
+# Exclude Jupyter
+*.ipynb_checkpoints/
+
+# Exclude SvelteKit
+.svelte-kit/
+
+# Exclude Next.js
+.next/
+
+# Exclude Vite
+.vite/
+
+# Exclude Playwright
+playwright-report/
+
+# Exclude Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Exclude Storybook
+storybook-static/
+
+# Exclude coverage
+coverage/
+
+# Exclude test output
+junit.xml
+
+# Exclude misc
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.der
+*.srl
+*.pub
+*.enc
+*.dec
+
+# Exclude local config
+*.local.js
+*.local.ts
+*.local.json
+
+# Exclude lockfiles
+package-lock.json
+yarn.lock
+
+# Exclude pnpm store
+.pnpm-store/
+
+# Exclude cache
+.cache/
+
+# Exclude output
+output/
+
+# Exclude build artifacts
+artifacts/
+
+# Exclude test snapshots
+__snapshots__/
+
+# Exclude test results
+results/
+
+# Exclude VSCode history
+.history/
+
+# Exclude Mac system files
+.AppleDouble/
+.LSOverride
+
+# Exclude Windows system files
+$RECYCLE.BIN/
+
+# Exclude Linux system files
+lost+found/
+
+# Exclude coverage reports
+lcov-report/
+
+# Exclude npm logs
+npm-debug.log*
+
+# Exclude pnpm logs
+pnpm-debug.log*
+
+# Exclude yarn logs
+yarn-debug.log*
+yarn-error.log*
+
+# Exclude test output
+output.log
+
+# Exclude error logs
+error.log
+
+# Exclude backup files
+*.bak
+
+# Exclude temp files
+*.tmp
+
+# Exclude editor swap files
+*.swp
+*.swo
+
+# Exclude system files
+.DS_Store
+Thumbs.db
+
+# Exclude JetBrains IDEs
+.idea/
+
+# Exclude VSCode
+.vscode/
+
+# Exclude SvelteKit
+.svelte-kit/
+
+# Exclude Next.js
+.next/
+
+# Exclude Vite
+.vite/
+
+# Exclude Playwright
+playwright-report/
+
+# Exclude Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Exclude Storybook
+storybook-static/
+
+# Exclude test output
+junit.xml
+
+# Exclude misc
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.der
+*.srl
+*.pub
+*.enc
+*.dec
+
+# Exclude local config
+*.local.js
+*.local.ts
+*.local.json
+
+# Exclude lockfiles
+package-lock.json
+yarn.lock
+
+# Exclude pnpm store
+.pnpm-store/
+
+# Exclude cache
+.cache/
+
+# Exclude output
+output/
+
+# Exclude build artifacts
+artifacts/
+
+# Exclude test snapshots
+__snapshots__/
+
+# Exclude test results
+results/
+
+# Exclude VSCode history
+.history/
+
+# Exclude Mac system files
+.AppleDouble/
+.LSOverride
+
+# Exclude Windows system files
+$RECYCLE.BIN/
+
+# Exclude Linux system files
+lost+found/
+
+# Exclude coverage reports
+lcov-report/

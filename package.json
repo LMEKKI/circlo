@@ -1,0 +1,23 @@
+{
+	"name": "circlo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.ts",
+	"private": true,
+	"scripts": {
+		"dev:api": "pnpm --filter api run dev",
+		"dev:web": "pnpm --filter web run dev",
+		"dev": "concurrently   -n \"SERVER,WEB\"   -c \"red,blue\"   \"pnpm dev:api\"   \"pnpm dev:web\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.25.0",
+	"devDependencies": {
+		"concurrently": "^9.2.1"
+	},
+	"dependencies": {},
+	"overrides": {
+		"drizzle-kit>@esbuild-kit/esm-loader": "npm:tsx@^4.20.4"
+	}
+}
