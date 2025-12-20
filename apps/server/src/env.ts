@@ -12,6 +12,10 @@ const envSchema = z.object({
 	POSTGRES_PASSWORD: z.string(),
 	GITHUB_CLIENT_ID: z.string(),
 	GITHUB_CLIENT_SECRET: z.string(),
+	MAILGUN_API_KEY: z.string(),
+	MAILGUN_DOMAIN: z.string(),
+	MAILGUN_BASE_URL: z.url(),
+	MAILGUN_FROM_EMAIL: z.string(),
 });
 
 const parsed = envSchema.safeParse(process.env);

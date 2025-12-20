@@ -6,6 +6,7 @@
 	"private": true,
 	"scripts": {
 		"dev:api": "pnpm --filter api run dev",
+		"dev:studio": "pnpm drizzle-kit studio",
 		"dev:web": "pnpm --filter web run dev",
 		"dev": "concurrently   -n \"SERVER,WEB\"   -c \"red,blue\"   \"pnpm dev:api\"   \"pnpm dev:web\""
 	},

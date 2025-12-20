@@ -1,12 +1,11 @@
 import FormData from "form-data";
 import Mailgun from "mailgun.js";
 import type { BaseEmailData } from "shared/src/types/index.ts";
-
-// Client Mailgun (singleton)
+import { myenv } from "@/server/env"; // Client Mailgun (singleton)
 const mailgun = new Mailgun(FormData);
 const mg = mailgun.client({
 	username: "api",
-	key: process.env.MAILGUN_API_KEY!,
+	key: myenv.MAILGUN_API_KEY,
 	// url: process.env.MAILGUN_API_URL, // ex: "https://api.eu.mailgun.net" si EU
 });
 
@@ -17,8 +16,8 @@ const mg = mailgun.client({
 export async function sendEmail(data: BaseEmailData): Promise<void> {
 	const { to, subject, text, html } = data;
 	try {
-		await mg.messages.create(process.env.MAILGUN_DOMAIN!, {
-			from: process.env.MAILGUN_FROM_EMAIL!,
+		await mg.messages.create(myenv.MAILGUN_DOMAIN, {
+			from: myenv.MAILGUN_FROM_EMAIL,
 			to: [to], // Mailgun attend un tableau
 			subject,
 			text,

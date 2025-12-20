@@ -4,8 +4,25 @@ import { db } from "@/server/db/index";
 import { openAPI } from "better-auth/plugins";
 import { user, account, session, verification } from "@/server/db/schema/index";
 import { myenv, type EnvVariables } from "../env";
+import { sendEmail } from "../services/email/emailService";
+import { sendResetPasswordEmailHtml } from "../services/email/sendResetPasswordEmail";
+import { sendVerificationEmailHtml } from "../services/email/sendVerificationEmail";
 
 export const auth = betterAuth({
+	emailVerification: {
+		sendVerificationEmail: async ({ user, url, token }, request) => {
+			// Implémentez l’envoi d’email ici, par ex. avec sendEmail()
+			await sendEmail({
+				to: user.email!,
+				subject: "Vérifiez votre adresse email",
+				text: `Veuillez vérifier votre adresse email en cliquant sur le lien suivant : ${url}`,
+				html: sendVerificationEmailHtml({
+					username: user.name,
+					verificationLink: url,
+				}),
+			});
+		},
+	},
 	socialProviders: {
 		github: {
 			clientId: myenv.GITHUB_CLIENT_ID as EnvVariables["GITHUB_CLIENT_ID"],
@@ -21,6 +38,23 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 		requireEmailVerification: true,
+
+		disableSignUp: false,
+		minPasswordLength: 8,
+		maxPasswordLength: 128,
+		autoSignIn: true,
+
+		sendResetPassword: async ({ user, url }) => {
+			await sendEmail({
+				to: user.email!,
+				subject: "Vérifiez votre adresse email",
+				text: `Veuillez vérifier votre adresse email en cliquant sur le lien suivant : ${url}`,
+				html: sendResetPasswordEmailHtml({
+					username: user.name,
+					resetLink: url,
+				}),
+			});
+		},
 	},
 	plugins: [openAPI()],
 });
