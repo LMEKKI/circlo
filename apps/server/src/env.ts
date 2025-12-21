@@ -26,4 +26,9 @@ if (!parsed.success) {
 
 export const myenv = parsed.data as Readonly<z.infer<typeof envSchema>>;
 
+export const MAILGUN_API_KEY = myenv.MAILGUN_API_KEY;
+export const MAILGUN_DOMAIN = myenv.MAILGUN_DOMAIN;
+export const MAILGUN_BASE_URL = myenv.MAILGUN_BASE_URL;
+export const MAILGUN_FROM_EMAIL = myenv.MAILGUN_FROM_EMAIL;
+
 export type EnvVariables = typeof myenv;

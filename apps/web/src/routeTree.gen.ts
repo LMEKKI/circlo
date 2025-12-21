@@ -11,8 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthIndexRouteImport } from './routes/auth/index'
-import { Route as AuthSigninIndexRouteImport } from './routes/auth/signin/index'
+import { Route as AuthSignupRouteImport } from './routes/auth/signup'
+import { Route as AuthSigninRouteImport } from './routes/auth/signin'
 
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
@@ -24,49 +24,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthIndexRoute = AuthIndexRouteImport.update({
-  id: '/auth/',
-  path: '/auth/',
+const AuthSignupRoute = AuthSignupRouteImport.update({
+  id: '/auth/signup',
+  path: '/auth/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthSigninIndexRoute = AuthSigninIndexRouteImport.update({
-  id: '/auth/signin/',
-  path: '/auth/signin/',
+const AuthSigninRoute = AuthSigninRouteImport.update({
+  id: '/auth/signin',
+  path: '/auth/signin',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/auth': typeof AuthIndexRoute
-  '/auth/signin': typeof AuthSigninIndexRoute
+  '/auth/signin': typeof AuthSigninRoute
+  '/auth/signup': typeof AuthSignupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/auth': typeof AuthIndexRoute
-  '/auth/signin': typeof AuthSigninIndexRoute
+  '/auth/signin': typeof AuthSigninRoute
+  '/auth/signup': typeof AuthSignupRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/auth/': typeof AuthIndexRoute
-  '/auth/signin/': typeof AuthSigninIndexRoute
+  '/auth/signin': typeof AuthSigninRoute
+  '/auth/signup': typeof AuthSignupRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/auth' | '/auth/signin'
+  fullPaths: '/' | '/about' | '/auth/signin' | '/auth/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/auth' | '/auth/signin'
-  id: '__root__' | '/' | '/about' | '/auth/' | '/auth/signin/'
+  to: '/' | '/about' | '/auth/signin' | '/auth/signup'
+  id: '__root__' | '/' | '/about' | '/auth/signin' | '/auth/signup'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AuthIndexRoute: typeof AuthIndexRoute
-  AuthSigninIndexRoute: typeof AuthSigninIndexRoute
+  AuthSigninRoute: typeof AuthSigninRoute
+  AuthSignupRoute: typeof AuthSignupRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -85,18 +85,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/auth/': {
-      id: '/auth/'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthIndexRouteImport
+    '/auth/signup': {
+      id: '/auth/signup'
+      path: '/auth/signup'
+      fullPath: '/auth/signup'
+      preLoaderRoute: typeof AuthSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/auth/signin/': {
-      id: '/auth/signin/'
+    '/auth/signin': {
+      id: '/auth/signin'
       path: '/auth/signin'
       fullPath: '/auth/signin'
-      preLoaderRoute: typeof AuthSigninIndexRouteImport
+      preLoaderRoute: typeof AuthSigninRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -105,8 +105,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AuthIndexRoute: AuthIndexRoute,
-  AuthSigninIndexRoute: AuthSigninIndexRoute,
+  AuthSigninRoute: AuthSigninRoute,
+  AuthSignupRoute: AuthSignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
