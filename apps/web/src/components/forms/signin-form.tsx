@@ -14,7 +14,22 @@ import {
 	FieldLabel,
 	FieldSeparator,
 } from "@/components/ui/field";
+import type { SignInType } from "../../../../../shared/src/types";
+import { signIn } from "@/lib/api/auth/signin";
+
 import { Input } from "@/components/ui/input";
+const handleSignin = async (event: React.FormEvent<HTMLFormElement>) => {
+	event.preventDefault();
+	const formdata = new FormData(event.currentTarget);
+
+	const data: SignInType = {
+		email: formdata.get("email") as SignInType["email"],
+		password: formdata.get("password") as SignInType["password"],
+		callbackURL: "''",
+		rememberMe: true,
+	};
+	await signIn(data);
+};
 
 export function SigninForm({
 	className,
@@ -28,7 +43,7 @@ export function SigninForm({
 					<CardDescription>Login with your Github account</CardDescription>
 				</CardHeader>
 				<CardContent>
-					<form>
+					<form onSubmit={handleSignin}>
 						<FieldGroup>
 							<Field>
 								<Button variant="outline" type="button">

@@ -13,3 +13,10 @@ export type SignUpType = {
 	callbackURL?: string;
 	rememberMe?: boolean;
 };
+
+export type SignInType = {
+	email: string;
+	password: string;
+	callbackURL?: string;
+	rememberMe?: boolean;
+};

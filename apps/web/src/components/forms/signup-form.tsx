@@ -29,7 +29,7 @@ const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
 		callbackURL: "",
 		rememberMe: true,
 	};
-	signUp(data);
+	await signUp(data);
 
 	console.log("Form Data:", Object.fromEntries(formdata.entries()));
 };
