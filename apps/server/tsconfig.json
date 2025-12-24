@@ -3,7 +3,8 @@
 		"outDir": "./dist",
 		"rootDir": ".",
 		"paths": {
-			"shared": ["../../packages/shared/src"],
+			"shared/*": ["../../shared/src/*"],
+			"@/shared/*": ["../../shared/src/*"],
 			"@/server/*": ["./src/*"],
 			"@web/*": ["../web/src/*"]
 		}

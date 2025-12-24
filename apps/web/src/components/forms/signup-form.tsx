@@ -15,6 +15,24 @@ import {
 	FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { signUp } from "@/lib/api/auth/signup";
+import type { SignUpType } from "../../../../../shared/src/types";
+const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
+	event.preventDefault();
+	const formdata = new FormData(event.currentTarget);
+
+	const data: SignUpType = {
+		name: formdata.get("name") as string,
+		email: formdata.get("email") as string,
+		password: formdata.get("password") as string,
+		image: "",
+		callbackURL: "",
+		rememberMe: true,
+	};
+	signUp(data);
+
+	console.log("Form Data:", Object.fromEntries(formdata.entries()));
+};
 
 export function SignupForm({
 	className,
@@ -28,7 +46,7 @@ export function SignupForm({
 					<CardDescription>Sign up with your Github account</CardDescription>
 				</CardHeader>
 				<CardContent>
-					<form>
+					<form onSubmit={handleSignup} className="space-y-4">
 						<FieldGroup>
 							<Field>
 								<Button variant="outline" type="button">
@@ -49,12 +67,19 @@ export function SignupForm({
 
 							<Field>
 								<FieldLabel htmlFor="name">Name</FieldLabel>
-								<Input id="name" type="text" placeholder="Your Name" required />
+								<Input
+									id="name"
+									name="name"
+									type="text"
+									placeholder="Your Name"
+									required
+								/>
 							</Field>
 							<Field>
 								<FieldLabel htmlFor="email">Email</FieldLabel>
 								<Input
 									id="email"
+									name="email"
 									type="email"
 									placeholder="m@example.com"
 									required
@@ -63,7 +88,7 @@ export function SignupForm({
 							<Field>
 								<FieldLabel htmlFor="password">Password</FieldLabel>
 
-								<Input id="password" type="password" required />
+								<Input id="password" name="password" type="password" required />
 							</Field>
 
 							<Field>

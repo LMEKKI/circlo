@@ -3,10 +3,10 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "@/server/db/index";
 import { openAPI } from "better-auth/plugins";
 import { user, account, session, verification } from "@/server/db/schema/index";
-import { myenv, type EnvVariables } from "../env";
-import { sendEmail } from "../services/email/emailService";
-import { sendResetPasswordEmailHtml } from "../services/email/sendResetPasswordEmail";
-import { sendVerificationEmailHtml } from "../services/email/sendVerificationEmail";
+import { myenv, type EnvVariables } from "@/server/env";
+import { sendEmail } from "@/server/services/email/emailService";
+import { sendResetPasswordEmailHtml } from "@/server/services/email/sendResetPasswordEmail";
+import { sendVerificationEmailHtml } from "@/server/services/email/sendVerificationEmail";
 
 export const auth = betterAuth({
 	emailVerification: {

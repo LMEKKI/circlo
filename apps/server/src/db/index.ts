@@ -1,4 +1,4 @@
-import { myenv, type EnvVariables } from "../env";
+import { myenv, type EnvVariables } from "@/server/env";
 
 import { drizzle } from "drizzle-orm/node-postgres";
 
