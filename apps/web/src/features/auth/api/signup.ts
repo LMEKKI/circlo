@@ -1,6 +1,6 @@
-import type { SignUpType } from "../../../../../../shared/src/types";
+import type { SignUpInput } from "@shared/index";
 
-export async function signUp(data: SignUpType) {
+export async function signUp(data: SignUpInput) {
 	try {
 		fetch("http://localhost:3000/api/auth/sign-up/email", {
 			method: "POST",

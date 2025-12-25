@@ -14,7 +14,7 @@ import {
 	FieldLabel,
 	FieldSeparator,
 } from "@/components/ui/field";
-import type { SignInType } from "../../../../../shared/src/types";
+import type { SignInType } from "@shared";
 import { signIn } from "../api/signin";
 
 import { Input } from "@/components/ui/input";

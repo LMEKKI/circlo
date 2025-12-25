@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { signUp } from "../api/signup";
-import type { SignUpType } from "../../../../../shared/src/types";
+import type { SignUpType } from "@shared";
 const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
 	event.preventDefault();
 	const formdata = new FormData(event.currentTarget);

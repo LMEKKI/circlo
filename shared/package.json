@@ -1,17 +1,22 @@
 {
 	"name": "shared",
 	"version": "1.0.0",
-	"main": "src/index.ts",
-	"types": "src/index.ts",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"type": "module",
 	"exports": {
-		".": "./src/index.ts"
+		".": {
+			"types": "./src/index.ts",
+			"default": "./src/index.ts"
+		},
+		"./*": "./*"
 	},
 	"files": [
 		"src"
 	],
 	"devDependencies": {
-		"zod": "^3.22.4",
-		"@ts-rest/core": "^3.38.0"
+		"@ts-rest/core": "^3.52.1",
+		"zod": "^3.22.4"
 	},
 	"keywords": [],
 	"author": "",
