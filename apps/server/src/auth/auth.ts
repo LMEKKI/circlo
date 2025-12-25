@@ -9,6 +9,8 @@ import { sendResetPasswordEmailHtml } from "@/server/services/email/sendResetPas
 import { sendVerificationEmailHtml } from "@/server/services/email/sendVerificationEmail";
 
 export const auth = betterAuth({
+	trustedOrigins: ["http://localhost:5173", " http://127.0.0.1:5173"],
+
 	emailVerification: {
 		sendVerificationEmail: async ({ user, url, token }, request) => {
 			// Implémentez l’envoi d’email ici, par ex. avec sendEmail()
@@ -38,7 +40,7 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 		requireEmailVerification: false,
-
+		callbackURL: "localhost:5173",
 		disableSignUp: false,
 		minPasswordLength: 8,
 		maxPasswordLength: 128,

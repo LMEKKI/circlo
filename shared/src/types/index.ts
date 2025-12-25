@@ -17,6 +17,6 @@ export type SignUpType = {
 export type SignInType = {
 	email: string;
 	password: string;
-	callbackURL?: string;
+	callbackURL?: string | undefined;
 	rememberMe?: boolean;
 };
